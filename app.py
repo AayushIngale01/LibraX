@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -40,12 +41,15 @@ def home():
     available_books = sum(1 for book in books if book["status"] == "Available")
     borrowed_books = sum(1 for book in books if book["status"] == "Borrowed")
 
+    commit_id = os.getenv("RENDER_GIT_COMMIT", "local")
+
     return render_template(
         "index.html",
         books=books,
         total_books=total_books,
         available_books=available_books,
-        borrowed_books=borrowed_books
+        borrowed_books=borrowed_books,
+        commit_id=commit_id,
     )
 
 

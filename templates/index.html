@@ -148,8 +148,10 @@
 {% endfor %}
     <!-- FOOTER -->
     <footer>
-        © 2026 LibraX — Smart Campus Library
-    </footer>
+    © 2026 LibraX — Smart Campus Library
+    <br>
+    Running commit: {{ commit_id }}
+</footer>
 <script>
 async function borrowBook(bookId) {
     const response = await fetch(`/books/${bookId}/borrow`, {
