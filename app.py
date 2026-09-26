@@ -68,7 +68,8 @@ def home():
         commit_id=commit_id,
         search=search,
     )
-    
+
+
 @app.route("/health")
 def health():
     return {"status": "ok"}
