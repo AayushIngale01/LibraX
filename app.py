@@ -37,22 +37,38 @@ books = [
 
 @app.route("/")
 def home():
+    search = request.args.get("search", "").strip().lower()
+
+    if search:
+        filtered_books = [
+            book for book in books
+            if search in book["title"].lower()
+            or search in book["author"].lower()
+            or search in book["genre"].lower()
+        ]
+    else:
+        filtered_books = books
+
     total_books = len(books)
-    available_books = sum(1 for book in books if book["status"] == "Available")
-    borrowed_books = sum(1 for book in books if book["status"] == "Borrowed")
+    available_books = sum(
+        1 for book in books if book["status"] == "Available"
+    )
+    borrowed_books = sum(
+        1 for book in books if book["status"] == "Borrowed"
+    )
 
     commit_id = os.getenv("RENDER_GIT_COMMIT", "local")
 
     return render_template(
         "index.html",
-        books=books,
+        books=filtered_books,
         total_books=total_books,
         available_books=available_books,
         borrowed_books=borrowed_books,
         commit_id=commit_id,
+        search=search,
     )
-
-
+    
 @app.route("/health")
 def health():
     return {"status": "ok"}

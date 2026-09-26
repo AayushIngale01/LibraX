@@ -37,27 +37,24 @@
             — all in one place.
         </p>
 
-        <div class="search-box">
-
-            <input
-                type="text"
-                placeholder="Search books or authors..."
-            >
-
-            <button>
-                Search
-            </button>
-
-        </div>
-
+        
     </section>
 
 
-    <!-- MAIN CONTENT -->
-    <main class="container">
 
        <!-- MAIN CONTENT -->
 <main class="container">
+
+    <form method="GET" action="/" class="search-form">
+        <input
+            type="text"
+            name="search"
+            value="{{ search }}"
+            placeholder="Search books, authors, or genres..."
+        >
+        <button type="submit">Search</button>
+    </form>
+
 
     <!-- STATISTICS -->
     <section class="stats">
