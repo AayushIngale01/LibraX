@@ -101,6 +101,16 @@ def add_book():
     }
 
 
+@app.route("/books/<int:book_id>")
+def book_details(book_id):
+    book = next((book for book in books if book["id"] == book_id), None)
+
+    if book is None:
+        return "Book not found", 404
+
+    return render_template("book_details.html", book=book)
+
+
 @app.route("/api/books")
 def api_books():
     return {"books": books}
