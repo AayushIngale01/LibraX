@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book["title"] }} — LibraX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <h1>LibraX</h1>
+            <p>Smart Campus Library</p>
+        </div>
+
+        <a href="/">← Back to Library</a>
+    </header>
+
+    <main class="container">
+        <section class="book-details">
+
+            <div class="book-details-cover">
+                📖
+            </div>
+
+            <div class="book-details-content">
+
+                <p class="eyebrow">
+                    {{ book["genre"] }}
+                </p>
+
+                <h2>{{ book["title"] }}</h2>
+
+                <p class="author">
+                    by {{ book["author"] }}
+                </p>
+
+                <p class="description">
+                    {{ book.get("description", "No description available.") }}
+                </p>
+
+                <div class="book-meta">
+                    <span>⭐ {{ book.get("rating", 4.5) }}</span>
+                    <span>🔥 {{ book.get("borrowCount", 0) }} borrowings</span>
+                    <span>{{ book["status"] }}</span>
+                </div>
+
+                {% if book["status"] == "Available" %}
+
+                    <form
+                        action="/books/{{ book['id'] }}/borrow"
+                        method="POST"
+                    >
+                        <button type="submit">
+                            Borrow Book
+                        </button>
+                    </form>
+
+                {% else %}
+
+                    <form
+                        action="/books/{{ book['id'] }}/return"
+                        method="POST"
+                    >
+                        <button type="submit">
+                            Return Book
+                        </button>
+                    </form>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        © 2026 LibraX — Smart Campus Library
+    </footer>
+
+</body>
+</html>
