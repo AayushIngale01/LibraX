@@ -173,5 +173,47 @@ def return_book(book_id):
     }, 404
 
 
+@app.route("/books/<int:book_id>/rate", methods=["POST"])
+def rate_book(book_id):
+    rating = request.form.get("rating", "").strip()
+
+    try:
+        rating = int(rating)
+    except ValueError:
+        return {
+            "success": False,
+            "message": "Rating must be a number"
+        }, 400
+
+    if rating < 1 or rating > 5:
+        return {
+            "success": False,
+            "message": "Rating must be between 1 and 5"
+        }, 400
+
+    for book in books:
+        if book["id"] == book_id:
+            current_rating = book.get("rating", 0)
+            rating_count = book.get("ratingCount", 0)
+
+            new_rating = (
+                (current_rating * rating_count) + rating
+            ) / (rating_count + 1)
+
+            book["rating"] = round(new_rating, 1)
+            book["ratingCount"] = rating_count + 1
+
+            return {
+                "success": True,
+                "message": "Rating submitted successfully!",
+                "rating": book["rating"]
+            }
+
+    return {
+        "success": False,
+        "message": "Book not found"
+    }, 404
+
+
 if __name__ == "__main__":
     app.run(debug=True)
