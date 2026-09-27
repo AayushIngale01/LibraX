@@ -169,3 +169,106 @@ footer {
         width: 94%;
     }
 }
+
+/* Book Details Page */
+.book-details {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.book-details-content {
+    text-align: left;
+}
+
+.book-details-content h2 {
+    font-size: 32px;
+    margin: 12px 0 8px;
+    color: #172554;
+}
+
+.book-details-content .author {
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.book-details-content .description {
+    color: #475569;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+.book-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    color: #475569;
+}
+
+.rating-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 15px;
+}
+
+.rating-section h3 {
+    margin-bottom: 18px;
+    color: #172554;
+}
+
+.star-rating {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.star-rating label {
+    cursor: pointer;
+    font-size: 28px;
+    color: #fbbf24;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star-rating input {
+    margin: 0;
+}
+
+.rating-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.rating-form button:hover {
+    background: #1d4ed8;
+}
+
+.book-details button {
+    margin-top: 12px;
+}
+
+.book-details a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.book-details a:hover {
+    text-decoration: underline;
+}

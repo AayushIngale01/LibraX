@@ -45,6 +45,46 @@
                     <span>🔥 {{ book.get("borrowCount", 0) }} borrowings</span>
                     <span>{{ book["status"] }}</span>
                 </div>
+               
+                <div class="rating-section">
+                <h3>Rate this book</h3>
+
+                <form
+                    action="/books/{{ book['id'] }}/rate"
+                    method="POST"
+                    class="rating-form"
+                    onsubmit="submitRating(event, {{ book['id'] }})"
+>
+                    <div class="star-rating">
+                        <label>
+                            <input type="radio" name="rating" value="1" required>
+                            ⭐
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="2">
+                            ⭐⭐
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="3">
+                            ⭐⭐⭐
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="4">
+                            ⭐⭐⭐⭐
+                        </label>
+
+                        <label>
+                            <input type="radio" name="rating" value="5">
+                            ⭐⭐⭐⭐⭐
+                        </label>
+                    </div>
+
+                    <button type="submit">Submit Rating</button>
+                </form>
+            </div>
 
                 {% if book["status"] == "Available" %}
 
@@ -78,6 +118,35 @@
     <footer>
         © 2026 LibraX — Smart Campus Library
     </footer>
+<script>
+async function submitRating(event, bookId) {
+    event.preventDefault();
 
+    const form = event.target;
+    const rating = form.querySelector('input[name="rating"]:checked');
+
+    if (!rating) {
+        alert("Please select a rating.");
+        return;
+    }
+
+    const response = await fetch(`/books/${bookId}/rate`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `rating=${rating.value}`
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        alert(data.message);
+        location.reload();
+    } else {
+        alert(data.message);
+    }
+}
+</script>
 </body>
 </html>
