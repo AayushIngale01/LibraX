@@ -1,5 +1,6 @@
 import os
 from flask import Flask, render_template, request
+from datetime import date, timedelta
 
 app = Flask(__name__)
 
@@ -126,11 +127,18 @@ def borrow_book(book_id):
                     "message": "Book is already borrowed"
                 }, 400
 
+            today = date.today()
+            due_date = today + timedelta(days=14)
+
             book["status"] = "Borrowed"
+            book["borrowDate"] = today.isoformat()
+            book["dueDate"] = due_date.isoformat()
+            book["borrower"] = "Student"
 
             return {
                 "success": True,
-                "message": "Book borrowed successfully!"
+                "message": "Book borrowed successfully!",
+                "dueDate": book["dueDate"]
             }
 
     return {
@@ -150,6 +158,9 @@ def return_book(book_id):
                 }, 400
 
             book["status"] = "Available"
+            book["borrowDate"] = None
+            book["dueDate"] = None
+            book["borrower"] = None
 
             return {
                 "success": True,
