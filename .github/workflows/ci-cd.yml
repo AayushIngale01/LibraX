@@ -58,3 +58,14 @@ jobs:
       - name: Health check
         run: |
           curl --fail http://localhost:5000/health
+
+     deploy:
+    name: Deploy to Render
+    needs: docker
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render deploy
+        run: |
+          curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}&ref=${{ github.sha }}"
