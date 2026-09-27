@@ -32,6 +32,83 @@ books = [
         "author": "Robert C. Martin",
         "genre": "Technology",
         "status": "Available"
+    },
+    {
+        "id": 5,
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt & David Thomas",
+        "genre": "Technology",
+        "status": "Available"
+    },
+    {
+        "id": 6,
+        "title": "Rich Dad Poor Dad",
+        "author": "Robert Kiyosaki",
+        "genre": "Finance",
+        "status": "Available"
+    },
+    {
+        "id": 7,
+        "title": "Deep Work",
+        "author": "Cal Newport",
+        "genre": "Productivity",
+        "status": "Borrowed"
+    },
+    {
+        "id": 8,
+        "title": "The 7 Habits of Highly Effective People",
+        "author": "Stephen R. Covey",
+        "genre": "Self Help",
+        "status": "Available"
+    },
+    {
+        "id": 9,
+        "title": "Think and Grow Rich",
+        "author": "Napoleon Hill",
+        "genre": "Business",
+        "status": "Available"
+    },
+    {
+        "id": 10,
+        "title": "Ikigai",
+        "author": "Hector Garcia & Francesc Miralles",
+        "genre": "Self Help",
+        "status": "Available"
+    },
+    {
+        "id": 11,
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen et al.",
+        "genre": "Technology",
+        "status": "Borrowed"
+    },
+    {
+        "id": 12,
+        "title": "The Lean Startup",
+        "author": "Eric Ries",
+        "genre": "Business",
+        "status": "Available"
+    },
+    {
+        "id": 13,
+        "title": "Zero to One",
+        "author": "Peter Thiel",
+        "genre": "Business",
+        "status": "Available"
+    },
+    {
+        "id": 14,
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Fiction",
+        "status": "Available"
+    },
+    {
+        "id": 15,
+        "title": "The Intelligent Investor",
+        "author": "Benjamin Graham",
+        "genre": "Finance",
+        "status": "Borrowed"
     }
 ]
 
