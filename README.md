@@ -1,66 +1,60 @@
 # LibraX — Smart Campus Library
 
-> **Find. Borrow. Read. Return.**
+LibraX is a Flask-based Smart Campus Library web application developed for the Cloud Computing and DevOps course at MIT World Peace University.
 
-LibraX is a dynamic Smart Campus Library web application built using **Python Flask**. It allows students to discover books, search the library collection, view book details, borrow and return books, and submit ratings.
+The project demonstrates dynamic web pages, book management operations, validation, REST API functionality, automated testing, linting, Docker containerization, GitHub Actions CI/CD, and deployment on Render.
 
-The project was developed as an individual **Cloud Computing and DevOps (CSE30040) CCA 2** project at MIT World Peace University, Pune.
-
----
-
-## 🚀 Features
+## Features
 
 - 📚 Dynamic library book catalogue
-- 🔎 Search books by title, author, or genre
-- 📖 Detailed book information
-- 📥 Add new books with input validation
-- 📗 Borrow and return books
-- ⭐ Submit and calculate book ratings
-- 📊 Available and borrowed book statistics
-- 🔗 JSON API for books
-- ❤️ Health-check endpoint
-- 🆔 Live deployment commit ID displayed in the footer
+- 🔎 Search books by title, author, and genre
+- 📖 View detailed book information
+- ➕ Add new books using a POST form
+- ✅ Input validation for book creation
+- 📕 Borrow books
+- 🔄 Return borrowed books
+- ⭐ Rate books from 1–5 stars
+- 📊 Book rating statistics
+- 🔌 JSON API for books
+- ❤️ Health check endpoint
 - 🐳 Docker containerization
-- ⚙️ Automated CI/CD using GitHub Actions
-- ☁️ Deployment on Render
+- ⚙️ Automated GitHub Actions CI/CD
+- 🚀 Automatic deployment to Render through a Deploy Hook
+- 🆔 Live website displays the deployed Git commit ID
 
----
+## Technology Stack
 
-## 🛠️ Technology Stack
+- Python 3.12
+- Flask
+- HTML5
+- CSS3
+- JavaScript
+- Pytest
+- Flake8
+- Docker
+- Git & GitHub
+- GitHub Actions
+- Render
 
-| Component | Technology |
-|---|---|
-| Language | Python 3.12 |
-| Web Framework | Flask |
-| Templates | Jinja2 |
-| Testing | pytest |
-| Linting | flake8 |
-| Containerization | Docker |
-| CI/CD | GitHub Actions |
-| Deployment | Render |
-| Version Control | Git & GitHub |
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```text
 LibraX/
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── static/
+│   └── style.css
+│
+├── templates/
+│   ├── index.html
+│   └── book_details.html
 │
 ├── app.py
 ├── test_app.py
 ├── requirements.txt
 ├── Dockerfile
 ├── .gitignore
-├── README.md
-│
-├── templates/
-│   ├── index.html
-│   └── book_details.html
-│
-├── static/
-│   └── style.css
-│
-└── .github/
-    └── workflows/
-        └── ci-cd.yml
+└── README.md
